@@ -33,7 +33,15 @@ const getAll = asyncHandler(async (req, res) => {
   res.success(result);
 });
 
+const getOne = asyncHandler(async (req, res) => {
+  const { params: { id } } = req
+
+  const result = await User.getOne(id);
+  res.success(result);
+});
+
 module.exports = {
   createOne,
   getAll,
+  getOne,
 };

@@ -26,7 +26,18 @@ const getAll = async ({ skip, limit }) => {
   };
 };
 
+const getOne = async id => {
+  const user = await UserCollection.findById(id);
+  // check if nothing is found by the id
+  // throw a NOT_FOUND error
+  if (!user)
+    throw AppError('userId').USERID_NOT_FOUND;
+
+  return user;
+};
+
 module.exports = {
   createOne,
   getAll,
+  getOne,
 };
