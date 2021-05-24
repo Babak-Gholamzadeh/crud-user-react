@@ -60,9 +60,17 @@ const upadteOne = asyncHandler(async (req, res) => {
   res.success(result);
 });
 
+const deleteOne = asyncHandler(async (req, res) => {
+  const { params: { id } } = req;
+
+  const result = await User.deleteOne(id);
+  res.success(result);
+});
+
 module.exports = {
   createOne,
   getAll,
   getOne,
   upadteOne,
+  deleteOne,
 };

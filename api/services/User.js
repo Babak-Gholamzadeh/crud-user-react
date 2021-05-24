@@ -56,9 +56,20 @@ const updateOne = async (id, userData) => {
   return user;
 };
 
+const deleteOne = async id => {
+  const result = await UserCollection.deleteById(id);
+  // check if nothing is found by the id
+  // throw a NOT_FOUND error
+  if (!result)
+    throw AppError('userId').USERID_NOT_FOUND;
+
+  return result;
+};
+
 module.exports = {
   createOne,
   getAll,
   getOne,
   updateOne,
+  deleteOne,
 };

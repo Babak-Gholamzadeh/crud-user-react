@@ -9,6 +9,7 @@ router.route('/')
 
 router.route('/:id')
   .get(userController.getOne)
-  .put(validate.updateUser, userController.upadteOne);
+  .put(validate.updateUser, userController.upadteOne)
+  .delete(userController.deleteOne);
 
 module.exports = router;

@@ -6,7 +6,8 @@
     "start": "set NODE_ENV=production& node ./bin/www.js",
     "start:dev": "set NODE_ENV=development& nodemon ./bin/www.js",
     "test": "jest tests/ --runInBand",
-    "test:watch": "jest --watch tests/ --runInBand"
+    "test:watch": "jest --watch tests/ --runInBand",
+    "seed": "node seed"
   },
   "dependencies": {
     "ajv": "^8.5.0",

@@ -404,6 +404,50 @@
             }
           }
         }
+      },
+      "delete": {
+        "tags": ["User"],
+        "summary": "Delete one user",
+        "description": "",
+        "operationId": "deleteOneUser",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "data": true,
+                  "message": "operation was successful"
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
