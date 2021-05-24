@@ -1,35 +1,22 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Header from './components/Header/Header.component';
+import HomePage from './pages/Home/Home.component';
+import CreateUserPage from './pages/CreateUser/CreateUser.component';
+import EditUserPage from './pages/EditUser/EditUser.component';
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { apiResponse: "" };
-    }
+import './App.scss';
 
-    callAPI() {
-        fetch("http://localhost:9000/testAPI")
-            .then(res => res.text())
-            .then(res => this.setState({ apiResponse: res }))
-            .catch(err => err);
-    }
-
-    componentDidMount() {
-        this.callAPI();
-    }
-
-    render() {
-        return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <p className="App-intro">{this.state.apiResponse}</p>
-            </div>
-        );
-    }
-}
+const App = () => (
+  <div className="app">
+    <Header />
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/create-user" component={CreateUserPage} />
+      <Route exact path="/edit-user/:userId" component={EditUserPage} />
+      <Route path="*" render={() => <div>404</div>} />
+    </Switch>
+  </div>
+);
 
 export default App;
