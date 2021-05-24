@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "required": [
+    "userName"
+  ],
+  "properties": {
+    "userName": {
+      "type": "string"
+    },
+    "givenName": {
+      "type": "string"
+    },
+    "surName": {
+      "type": "string"
+    },
+    "DOB": {
+      "type": "string"
+    }
+  }
+}

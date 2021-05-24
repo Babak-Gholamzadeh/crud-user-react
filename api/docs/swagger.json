@@ -11,10 +11,108 @@
   ],
   "components": {
     "schemas": {
+      "CreateUser": {
+        "type": "object",
+        "required": ["userName"],
+        "properties": {
+          "userName": {
+            "type": "string"
+          },
+          "givenName": {
+            "type": "string"
+          },
+          "surName": {
+            "type": "string"
+          },
+          "DOB": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "userName": "alice",
+          "givenName": "Alice",
+          "surName": "Morgan",
+          "DOB": "05/19/2021"
+        }
+      }
     }
   },
   "tags": [
+    {
+      "name": "User"
+    }
   ],
   "paths": {
+    "/users": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Create a new user",
+        "description": "",
+        "operationId": "createOneUser",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUser"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "userName": {
+                          "type": "string"
+                        },
+                        "givenName": {
+                          "type": "string"
+                        },
+                        "surName": {
+                          "type": "string"
+                        },
+                        "DOB": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "data": {
+                    "id": "1a1c45c5-065a-4e39-a8d8-76f18c9e998b",
+                    "userName": "alice",
+                    "givenName": "Alice",
+                    "surName": "Morgan",
+                    "DOB": "05/19/2021"
+                  },
+                  "message": "operation was successful"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

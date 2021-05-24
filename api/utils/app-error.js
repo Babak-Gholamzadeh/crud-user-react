@@ -1,6 +1,6 @@
 const AppError = field => ({
-  SAMPLE_ERROR: {
-    code: 'SAMPLE_ERROR',
+  USERNAME_IS_DUPLICATED: {
+    code: 'USERNAME_IS_DUPLICATED',
     field,
   },
 });

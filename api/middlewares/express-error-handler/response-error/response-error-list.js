@@ -1,6 +1,6 @@
 const responseError = (field = 'defaultMessage') => ({
-  SAMPLE_ERROR: {
-    errors: { [field]: ['sample message'] },
+  USERNAME_IS_DUPLICATED: {
+    errors: { [field]: ['the username has already been taken'] },
     statusCode: 400,
   },
 });
