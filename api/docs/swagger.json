@@ -326,6 +326,84 @@
             }
           }
         }
+      },
+      "put": {
+        "tags": ["User"],
+        "summary": "Update one user",
+        "description": "",
+        "operationId": "updateOneUser",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUser"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "userName": {
+                          "type": "string"
+                        },
+                        "givenName": {
+                          "type": "string"
+                        },
+                        "surName": {
+                          "type": "string"
+                        },
+                        "DOB": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "data": {
+                    "id": "1a1c45c5-065a-4e39-a8d8-76f18c9e998b",
+                    "userName": "alice",
+                    "givenName": "Alice",
+                    "surName": "Morgan",
+                    "DOB": "05/19/2021"
+                  },
+                  "message": "operation was successful"
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

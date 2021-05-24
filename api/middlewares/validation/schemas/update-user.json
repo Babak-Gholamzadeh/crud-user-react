@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "userName": {
+      "type": "string"
+    },
+    "givenName": {
+      "type": "string"
+    },
+    "surName": {
+      "type": "string"
+    },
+    "DOB": {
+      "type": "string"
+    }
+  }
+}

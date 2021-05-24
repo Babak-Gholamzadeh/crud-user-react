@@ -8,6 +8,7 @@ router.route('/')
   .get(userController.getAll);
 
 router.route('/:id')
-  .get(userController.getOne);
+  .get(userController.getOne)
+  .put(validate.updateUser, userController.upadteOne);
 
 module.exports = router;

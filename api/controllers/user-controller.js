@@ -40,8 +40,29 @@ const getOne = asyncHandler(async (req, res) => {
   res.success(result);
 });
 
+const upadteOne = asyncHandler(async (req, res) => {
+  const {
+    params: { id },
+    body: {
+      userName,
+      givenName,
+      surName,
+      DOB,
+    }
+  } = req;
+
+  const result = await User.updateOne(id, {
+    userName,
+    givenName,
+    surName,
+    DOB,
+  });
+  res.success(result);
+});
+
 module.exports = {
   createOne,
   getAll,
   getOne,
+  upadteOne,
 };
