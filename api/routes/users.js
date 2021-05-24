@@ -4,6 +4,7 @@ const { validate } = require('../middlewares');
 const { userController } = require('../controllers');
 
 router.route('/')
-  .post(validate.createUser, userController.createOne);
+  .post(validate.createUser, userController.createOne)
+  .get(userController.getAll);
 
 module.exports = router;

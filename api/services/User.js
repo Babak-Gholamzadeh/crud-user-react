@@ -14,6 +14,19 @@ const createOne = async userData => {
   return newUser;
 };
 
+const getAll = async ({ skip, limit }) => {
+  const { total, data } = await UserCollection.find({}, { skip, limit });
+  return {
+    pagination: {
+      total,
+      skip: +skip,
+      limit: +limit,
+    },
+    data,
+  };
+};
+
 module.exports = {
   createOne,
+  getAll,
 };

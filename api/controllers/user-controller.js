@@ -20,6 +20,20 @@ const createOne = asyncHandler(async (req, res) => {
   res.success(result);
 });
 
+const getAll = asyncHandler(async (req, res) => {
+  let {
+    query: {
+      skip = 0,
+      limit = 20,
+    }
+  } = req;
+  limit = limit > 100 ? 100 : limit;
+
+  const result = await User.getAll({ skip, limit });
+  res.success(result);
+});
+
 module.exports = {
   createOne,
+  getAll,
 };

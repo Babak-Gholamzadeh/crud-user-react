@@ -44,6 +44,128 @@
   ],
   "paths": {
     "/users": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Get all the users",
+        "description": "",
+        "operationId": "getAllUsers",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "skip",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "example": "10"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "example": "20"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "metaData": {
+                      "type": "object",
+                      "properties": {
+                        "pagination": {
+                          "type": "object",
+                          "properties": {
+                            "total": {
+                              "type": "number"
+                            },
+                            "skip": {
+                              "type": "number"
+                            },
+                            "limit": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "userName": {
+                            "type": "string"
+                          },
+                          "givenName": {
+                            "type": "string"
+                          },
+                          "surName": {
+                            "type": "string"
+                          },
+                          "DOB": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "success": true,
+                  "metaData": {
+                    "pagination": {
+                        "total": 10,
+                        "skip": 0,
+                        "limit": 20
+                    }
+                  },
+                  "data": [
+                    {
+                      "id": "1a1c45c5-065a-4e39-a8d8-76f18c9e998b",
+                      "userName": "alice",
+                      "givenName": "Alice",
+                      "surName": "Morgan",
+                      "DOB": "05/19/2021"
+                    },
+                    {
+                      "id": "6c451390-8c38-4af9-a278-f5d6e98eb960",
+                      "userName": "bob",
+                      "givenName": "Bob",
+                      "surName": "Martin",
+                      "DOB": "06/20/2019"
+                    },
+                    {
+                      "id": "e979835d-40ae-4c0c-8560-c6c5faa900ef",
+                      "userName": "kyle",
+                      "givenName": "Kyle",
+                      "surName": "Freeman",
+                      "DOB": "01/12/2000"
+                    }
+                  ],
+                  "message": "operation was successful"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": ["User"],
         "summary": "Create a new user",
