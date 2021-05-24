@@ -1,0 +1,21 @@
+.pagination-wrapper {
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // border: 1px solid red;
+  .pagination-btn {
+    color: #fff;
+    background-color: #0275d8;
+    transition: background-color .2s ease;
+    width: 30px;
+    height: 30px;
+    &:disabled {
+      opacity: .5;
+    }
+    &:hover {
+      background-color: #0a4a95;
+    }
+  }
+}

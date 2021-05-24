@@ -1,0 +1,13 @@
+.app {
+  min-height: 100%;
+  overflow: hidden;
+  .page-container {
+    width: calc(100% - 40px);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 0;
+    .page-title {
+      margin-bottom: 30px;
+    }
+  }
+}

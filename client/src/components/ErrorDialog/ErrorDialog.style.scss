@@ -1,0 +1,27 @@
+.error-dialog-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(#000, 0.7);
+  z-index: 1;
+  .error-dialog-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    padding: 0 20px;
+    background-color: #ff3448;
+    .message {
+      color: #fff;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space:nowrap;
+      overflow: hidden;
+      padding: 13px 0;
+    }
+  }
+}
